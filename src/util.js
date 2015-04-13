@@ -108,6 +108,18 @@ function histsApproximatelyEqual(hist, expectedHist, tolerance) {
   return allOk;
 }
 
+function mean(xs) {
+  return sum(xs) / xs.length;
+}
+
+function std(xs) {
+  var mu = mean(xs);
+  var sqDiffs = xs.map(function(x) {
+    return Math.pow(x - mu, 2);
+  });
+  return Math.sqrt(mean(sqDiffs));
+}
+
 module.exports = {
   cpsForEach: cpsForEach,
   gensym: gensym,
@@ -115,10 +127,12 @@ module.exports = {
   indexOfPred: indexOfPred,
   lastIndexOfPred: lastIndexOfPred,
   makeGensym: makeGensym,
+  mean: mean,
   normalizeArray: normalizeArray,
   normalizeHist: normalizeHist,
   prettyJSON: prettyJSON,
   runningInBrowser: runningInBrowser,
+  std: std,
   sum: sum,
   histsApproximatelyEqual: histsApproximatelyEqual
 };
