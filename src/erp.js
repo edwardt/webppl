@@ -125,10 +125,9 @@ var discreteERP = new ERP(
       return inSupport ? Math.log(probs[val]) : -Infinity;
     },
     {
-      support:
-        function discreteSupport(params) {
-          return _.range(params[0].length);
-        }
+      support: function discreteSupport(params) {
+        return _.range(params[0].length);
+      }
     }
     );
 
@@ -294,10 +293,9 @@ var binomialERP = new ERP(
       }
     },
     {
-      support:
-        function binomialSupport(params) {
-          return _.range(params[1]).concat([params[1]]);
-        }
+      support: function binomialSupport(params) {
+        return _.range(params[1]).concat([params[1]]);
+      }
     }
     );
 
@@ -456,10 +454,9 @@ function makeMarginalERP(marginal) {
         return -Infinity;
       },
       {
-        support:
-          function(params) {
-            return supp;
-          }
+        support: function(params) {
+          return supp;
+        }
       }
       );
   return dist;
